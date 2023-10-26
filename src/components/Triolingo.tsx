@@ -30,6 +30,7 @@ const Triolingo = () => {
   const [max, setMax] = useState(20);
 
   const portfolio_link = "https://rebecca-shoptaw.github.io/";
+  const trio_path = "src/assets/trio.png";
 
   window.onload = () => {
     document.addEventListener("keydown", (e) => {
@@ -254,7 +255,7 @@ const Triolingo = () => {
             <div className={`trio-box ${!loaded ? "hidden" : ""}`}>
               <img
                 className="trio right"
-                src="src/assets/trio.png"
+                src={trio_path}
                 onLoad={() => setLoaded(true)}
               ></img>
               <div className="circle-shadow"></div>
@@ -280,7 +281,7 @@ const Triolingo = () => {
               </div>
             )}
             {numIncorrect > 3 && <h1>Better luck next time.</h1>}
-            <img src="src/assets/trio.png" className="trio-result" />
+            <img src={trio_path} className="trio-result" />
             {numAns == max - 1 && <h3>Trio is very proud of you.</h3>}
             {numIncorrect > 3 && <h3> Trio still believes in you.</h3>}
             <button
@@ -324,7 +325,7 @@ const Triolingo = () => {
           <div id="question-type-1" className="question-box">
             <h2 className="instruction">Select the correct meaning</h2>
             <div className="speaker-box">
-              <img className="speaker" src="src/assets/trio.png" />
+              <img className="speaker" src={trio_path} />
               <p className="question">{question}</p>
             </div>
             <div className="ans-box">
