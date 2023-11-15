@@ -113,6 +113,7 @@ The progress bar has a very simple implementation, just a nested blue fill with 
 - [ ] Because the initial version of the site was built very quickly, it is in desperate need of modularization and DRYing up, which will include:
     - [ ] Shifting the different parts of the site to different components and troubleshooting parent-child relationships to ensure the program remains functional
     - [ ] Replacing repetitive code both in Typescript functions and in the HTML with clean, efficient code
+    - [ ] Splitting up oversized functions such as `nextQ` into smaller, straightforward functions
     - [ ] Ensuring that only necessary state variables and functions are used
           
 The modularization and cleaning up of the code will make it far easier to re-use and possible the next big step:
