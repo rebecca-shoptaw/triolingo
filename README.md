@@ -129,7 +129,7 @@ And another less urgent but still fun item on the agenda:
 
 ## Long-term Goals
 - [ ] Work with a team to build a backend to store question data more efficiently, and perhaps save user data as well so users can track their progress
-- [ ] Invite contributors to build and maintain an open-source academic curriculum over a number of subjects, essentially creating a free, contributor-friendly version of Duolingo
+- [ ] Invite contributors to build and maintain an open-source academic curriculum over a number of subjects, essentially creating a many-subject, contributor-friendly version of Duolingo
 
 ## License
 
