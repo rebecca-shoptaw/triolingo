@@ -4,16 +4,23 @@ import LessonAnswerButton from "./LessonAnswerButton";
 import LessonFooter from "./LessonFooter";
 
 import { useQuestionData } from "../hooks/useQuestionData";
+import { useScoreKeeping } from "../hooks/useScoreKeeping";
 import { LessonProps } from "../types/types";
 import { TRIO_PATH } from "../data/link_paths";
 
-const Lesson = ({ data }: LessonProps) => {
+const Lesson = (props: LessonProps) => {
   const { questionInfo, answers, createFreshArr, loadQuestion, clearAnswers } =
-    useQuestionData(data);
+    useQuestionData(props.data);
+  const { numAns, numCorrect, numIncorrect, resetScore, incrementNums } =
+    useScoreKeeping();
 
   return (
     <main id="question-view">
-      <LessonHeader />
+      <LessonHeader
+        numAns={numAns}
+        numIncorrect={numIncorrect}
+        handleGameEnd={props.handleGameEnd}
+      />
       <LessonQuestion
         speakerPath={TRIO_PATH}
         question={questionInfo.question}

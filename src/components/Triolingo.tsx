@@ -61,7 +61,7 @@ const Triolingo = () => {
 
   useEffect(() => {
     nextQ();
-    handleGameEnd;
+    handleGameEnd();
   }, [miniArr]);
 
   useEffect(() => {
@@ -186,7 +186,7 @@ const Triolingo = () => {
       <Header />
       {!learning && <LandingMenu subject={SSAT} handleStart={handleStart} />}
       {learning && gameOver && <GameOver />}
-      {learning && !gameOver && <Lesson data={SSAT.lessonInfo[0].data}  />}
+      {learning && !gameOver && <Lesson data={SSAT.lessonInfo[0].data} handleGameEnd={handleGameEnd}  />}
       <Footer />
     </>
   );

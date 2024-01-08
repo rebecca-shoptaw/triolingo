@@ -1,12 +1,15 @@
+import LessonEnd from "./LessonEnd";
 import LessonProgressBar from "./LessonProgressBar";
 import LessonHearts from "./LessonHearts";
+import { max } from "../data/game_settings";
+import { LessonHeaderProps } from "../types/types";
 
-const LessonHeader = () => {
+const LessonHeader = (props:LessonHeaderProps) => {
   return (
     <header id="question-header">
-      <i id="end-lesson" className="bi bi-x-lg" onClick={handleStop}></i>
-      <LessonProgressBar numAns={numAns} max={max} />
-      <LessonHearts numIncorrect={numIncorrect} />
+      <LessonEnd handleGameEnd={props.handleGameEnd} />
+      <LessonProgressBar numAns={props.numAns} max={max} />
+      <LessonHearts numIncorrect={props.numIncorrect} />
     </header>
   );
 };

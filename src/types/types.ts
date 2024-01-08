@@ -34,6 +34,17 @@ export type LandingLessonInfoProps = {
 
 export type LessonProps = {
     data:string[][];
+    handleGameEnd:() => void;
+}
+
+export type LessonHeaderProps = {
+    numAns:number;
+    numIncorrect:number;
+    handleGameEnd:() => void;
+}
+
+export type LessonEndProps = {
+    handleGameEnd:() => void;
 }
 
 export type LessonHeartsProps = {
