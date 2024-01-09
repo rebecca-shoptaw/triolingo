@@ -66,3 +66,20 @@ export type LessonAnswerButtonProps = {
     answer:string;
 }
 
+export type GameOverProps = {
+    win:boolean;
+    handleRetry:() => void;
+    createFreshArr:() => void;
+    handleStop:() => void;
+}
+
+export type GameOverGraphicsProps = {
+    win:boolean;
+}
+
+export type GameOverButtonProps = {
+    win:boolean;
+    handleRetry:() => void;
+    createFreshArr:() => void;
+    handleStop:() => void;
+}
