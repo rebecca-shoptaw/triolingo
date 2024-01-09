@@ -1,20 +1,25 @@
-import { GameOverButtonProps } from "../types/types";
+import { GameOverProps } from "../types/types";
+import GameOverButton from "./GameOverButton";
+import { gameOverButtonData } from "../data/game_graphics";
 
-const GameOverButtons = (props: GameOverButtonProps) => {
-  const { win, handleRetry, handleStop, createFreshArr } = props;
+const GameOverButtons = (props: GameOverProps) => {
+  const { win, handleRetry, createFreshArr, handleStop } = props;
+  const { retry, restart, exit } = gameOverButtonData;
+
+  const buttons = [
+    { data: retry, onClick: handleRetry },
+    { data: restart, onClick: createFreshArr, winOnly: true },
+    { data: exit, onClick: handleStop },
+  ];
+
   return (
     <section className="result-buttons">
-      <button id="try-again" className="button clickable" onClick={handleRetry}>
-        PRACTICE AGAIN
-      </button>
-      {win && (
-        <button id="restart" className="button new" onClick={createFreshArr}>
-          NEW WORD SET
-        </button>
+      {buttons.map(
+        (button) =>
+          !(button.winOnly && !win) && (
+            <GameOverButton data={button.data} onClick={button.onClick} />
+          )
       )}
-      <button id="exit" className="button clickable" onClick={handleStop}>
-        EXIT
-      </button>
     </section>
   );
 };

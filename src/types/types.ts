@@ -77,9 +77,14 @@ export type GameOverGraphicsProps = {
     win:boolean;
 }
 
+type ButtonData  = {
+    id:string;
+    className:string;
+    text:string;
+    winOnly?:boolean;
+}
+
 export type GameOverButtonProps = {
-    win:boolean;
-    handleRetry:() => void;
-    createFreshArr:() => void;
-    handleStop:() => void;
+    data:ButtonData;
+    onClick:() => void;
 }
