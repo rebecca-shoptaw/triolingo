@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { max } from "../data/game_settings";
 
 export const useGameStatus = () => {
   const [learning, setLearning] = useState(false);
@@ -10,6 +11,8 @@ export const useGameStatus = () => {
     setLearning(true);
     setGameOver(false);
   };
+  const checkGameOver = (numIncorrect: number, numAns: number) =>
+    numIncorrect > 3 || numAns == max - 1 ? true : false;
 
-  return { learning, gameOver, handleRetry, handleGameEnd, handleGameStart };
+  return { learning, gameOver, checkGameOver, handleRetry, handleGameEnd, handleGameStart };
 };

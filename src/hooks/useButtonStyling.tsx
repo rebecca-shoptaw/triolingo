@@ -1,4 +1,9 @@
 export const useButtonStyling = () => {
+  const addButtonSelection = (
+    selection: number,
+    btn: HTMLElement | null = document.getElementById(selection.toString())
+  ) => btn?.classList.add("selected");
+
   const clearButtonSelection = () => {
     document.querySelectorAll("button").forEach((btn) => {
       btn.classList.remove("selected");
@@ -20,5 +25,5 @@ export const useButtonStyling = () => {
     });
   };
 
-  return { addButtonValidation, clearButtonValidation };
+  return { addButtonSelection, clearButtonSelection, addButtonValidation, clearButtonValidation };
 };
