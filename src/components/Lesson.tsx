@@ -9,8 +9,7 @@ import { LessonProps } from "../types/types";
 import { TRIO_PATH } from "../data/link_paths";
 
 const Lesson = (props: LessonProps) => {
-  const { questionInfo, answers, createFreshArr, loadQuestion, clearAnswers } =
-    useQuestionData(props.data);
+  const { questionInfo, answers } = useQuestionData(props.data);
   const { numAns, numCorrect, numIncorrect, resetScore, incrementNums } =
     useScoreKeeping();
 

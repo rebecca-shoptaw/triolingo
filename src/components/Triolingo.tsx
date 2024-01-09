@@ -10,26 +10,10 @@ import { SSAT } from "../data/subject_info";
 import { useGameStatus } from "../hooks/useGameStatus";
 
 const Triolingo = () => {
-  const max = 20;
-  const wordsArr = SSAT_VOCAB;
   const [miniArr, setMiniArr] = useState([["", ""]]);
-  const {gameOver, learning, handleGameStart, handleGameEnd} = useGameStatus();
-
-  //const [learning, setLearning] = useState(false);
-
-  const [question, setQuestion] = useState(wordsArr[0][0]);
-  const [ans1, setAns1] = useState(wordsArr[3][1]);
-  const [ans2, setAns2] = useState(wordsArr[4][1]);
-  const [ans3, setAns3] = useState(wordsArr[0][1]);
-  const [ans4, setAns4] = useState(wordsArr[300][1]);
-
-  const [numAns, setNumAns] = useState(0);
-  const [numCorrect, setNumCorrect] = useState(0);
-  const [numIncorrect, setNumIncorrect] = useState(0);
-
-  const [correct, setCorrect] = useState(3);
-  const [selection, setSelection] = useState(0);
-  const [answered, setAnswered] = useState(false);
+  const { gameOver, learning, handleGameStart, handleGameEnd } =
+    useGameStatus();
+  const {};
 
   window.onload = () => {
     document.addEventListener("keydown", (e) => {
@@ -51,7 +35,7 @@ const Triolingo = () => {
     });
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     if (!gameOver) {
       setNumAns(0);
       setNumCorrect(0);
@@ -179,14 +163,18 @@ const Triolingo = () => {
       }
       setQuestion(setArr[questionIndex][0]);
     }
-  };
+  };*/
 
   return (
     <>
       <Header />
-      {!learning && <LandingMenu subject={SSAT} handleStart={handleStart} />}
+      {!learning && (
+        <LandingMenu subject={SSAT} handleStart={handleGameStart} />
+      )}
       {learning && gameOver && <GameOver />}
-      {learning && !gameOver && <Lesson data={SSAT.lessonInfo[0].data} handleGameEnd={handleGameEnd}  />}
+      {learning && !gameOver && (
+        <Lesson data={SSAT.lessonInfo[0].data} handleGameEnd={handleGameEnd} />
+      )}
       <Footer />
     </>
   );
