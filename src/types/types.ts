@@ -21,10 +21,12 @@ export type LandingSubjectBannerProps = {
     description:string;
 }
 
+
 export type LandingLessonTileProps = {
     subject:string;
     num:number;
-    toggleActive:(num: number) => void
+    lesson:LessonInfo;
+    handleStart:() => void;
 }
 
 export type LandingLessonInfoProps = {
@@ -53,7 +55,6 @@ export type LessonHeartsProps = {
 
 export type LessonProgressBarProps = {
     numAns: number;
-    max: number;
 }
 
 export type LessonQuestionProps = {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import SSAT_VOCAB from "../data/ssat_qs";
-import LandingMenu from "./LandingMenu";
+import LandingMenu from "./Landing";
 import GameOver from "./GameOver";
 import Lesson from "./Lesson";
 import Header from "./Header";
@@ -13,7 +13,6 @@ const Triolingo = () => {
   const [miniArr, setMiniArr] = useState([["", ""]]);
   const { gameOver, learning, handleGameStart, handleGameEnd } =
     useGameStatus();
-  const {};
 
   window.onload = () => {
     document.addEventListener("keydown", (e) => {
@@ -171,7 +170,7 @@ const Triolingo = () => {
       {!learning && (
         <LandingMenu subject={SSAT} handleStart={handleGameStart} />
       )}
-      {learning && gameOver && <GameOver />}
+      {learning && gameOver && <GameOver win={win} handleRetry={handleGameStart} createFreshArr={createFreshArr} handleStop={handleGameEnd} />}
       {learning && !gameOver && (
         <Lesson data={SSAT.lessonInfo[0].data} handleGameEnd={handleGameEnd} />
       )}
