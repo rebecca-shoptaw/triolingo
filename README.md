@@ -41,6 +41,9 @@ If the user loses all the hearts before the lesson is up, they will get an encou
 
 
 ## Implementation
+### Note
+A full code refactor restructure is in progress as planned, and the information below is no longer fully accurate; will be replaced when the restructure is finished.
+
 ### Question Algorithm
 In the current version of the site, the question data comes from an array of more than 500 word/definition pair arrays:
 ```
@@ -76,16 +79,7 @@ while (answersIndex.length < 3) {
       }
 ```
 5. Randomly select which of the 4 answer slots should hold the correct answer, and store the number value in state as `correct` to use for the validation process
-6. Store the question and correct and three incorrect answers in state to be used to render the lesson view and check user answers. For example, if the correct answer will be choice 1:
-```
-setAns1(setArr[questionIndex][1]);
-setAns2(setArr[answersIndex[0]][1]);
-setAns3(setArr[answersIndex[1]][1]);
-setAns4(setArr[answersIndex[2]][1]);
-
-setQuestion(setArr[questionIndex][0]);
-```
-Note: the user of `setArr` rather than `miniArr` here, along with using the variable `max` in the place of 20 for the lesson length, along with some other currently unused code comes from an in-progress feature to add missed questions on to the end of the lesson.
+6. Store the question and correct and three incorrect answers in state to be used to render the lesson view and check user answers. 
 
 ### Answer Checking Algorithm
 When the user selects an answer, that number value is stored in state as `selection`, and when the user hits the check button, this is passed off to the fairly straightforward answer-checking `validate` function, which works as follows: 
@@ -112,9 +106,13 @@ The progress bar has a very simple implementation, just a nested blue fill with 
 ## Next Steps
 - [ ] Because the initial version of the site was built very quickly, it is in desperate need of modularization and DRYing up, which will include:
     - [ ] Shifting the different parts of the site to different components and troubleshooting parent-child relationships to ensure the program remains functional
-    - [ ] Replacing repetitive code both in Typescript functions and in the HTML with clean, efficient code
-    - [ ] Splitting up oversized functions such as `nextQ` into smaller, straightforward functions
-    - [ ] Ensuring that only necessary state variables and functions are used
+      - [x] Subdivide into separate components as needed
+      - [x] Begin incorporating custom hooks
+      - [ ] Optimize data flow between components
+    - [x] Replacing repetitive code both in Typescript functions and in the HTML with clean, efficient code
+    - [x] Splitting up oversized functions such as `nextQ` into smaller, straightforward functions
+    - [x] Ensuring that only necessary state variables and functions are used
+    - [ ] Switch styling from CSS to SCSS
           
 The modularization and cleaning up of the code will make it far easier to re-use and possible the next big step:
 - [ ] Introducing new question types and subject areas
@@ -123,9 +121,9 @@ The modularization and cleaning up of the code will make it far easier to re-use
 
 And another less urgent but still fun item on the agenda:
 - [ ] Cosmetic improvements
-    - [ ] Adding more fun transitions
-    - [ ] Adding more different versions of Trio (and perhaps some friends of his as well!)
-    - [ ] Bringing the design of the "lesson over" screen closer to the Duolingo equivalent
+    - [ ] Add animations via GSAP and custom hooks
+    - [ ] Add more different versions of Trio (and perhaps some friends of his as well!)
+    - [ ] Bring the design of the "game over" screen closer to the Duolingo equivalent
 
 ## Long-term Goals
 - [ ] Work with a team to build a backend to store question data more efficiently, and perhaps save user data as well so users can track their progress
