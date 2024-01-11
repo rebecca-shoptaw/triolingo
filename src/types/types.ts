@@ -67,6 +67,32 @@ export type LessonAnswerButtonProps = {
     answer:string;
 }
 
+export type LessonFooterProps = {
+    answered: boolean;
+    selected:boolean;
+    correct:boolean;
+    gameOver:boolean;
+    validate:() => void;
+    nextQ:() => void;
+    correctAns:string;
+}
+
+export type LessonFooterDefaultProps = {
+    selected:boolean;
+    validate:() => void;
+}
+
+export type LessonFooterCorrectProps = {
+    gameOver:boolean;
+    nextQ: () => void;
+}
+
+export type LessonFooterIncorrectProps = {
+    gameOver:boolean;
+    nextQ:() => void;
+    correctAns:string;
+}
+
 export type GameOverProps = {
     win:boolean;
     handleRetry:() => void;

@@ -1,55 +1,28 @@
+import { LessonFooterProps } from "../types/types";
+import LessonFooterDefault from "./LessonFooterDefault";
+import LessonFooterCorrect from "./LessonFooterCorrect";
+import LessonFooterIncorrect from "./LessonFooterIncorrect";
 
-
-const LessonFooter = () => {
+const LessonFooter = (props: LessonFooterProps) => {
+  const { answered, selected, correct, gameOver, validate, nextQ, correctAns } =
+    props;
   return (
-    <div>
-        {answered && selection == correct && (
-            <div id="correct-result" className="result">
-              <h3>Woohoo!</h3>
-              <p>Trio is pleased.</p>
-            </div>
-          )}
-          {answered && selection != correct && (
-            <div id="incorrect-result" className="result">
-              <h3>Nope!</h3>
-              <p>The correct answer was choice {correct}.</p>
-            </div>
-          )}
-    <div
-            id="footer"
-            className={`${
-              answered && selection == correct
-                ? "correct-foot"
-                : answered && selection != correct
-                ? "incorrect-foot"
-                : ""
-            }`}
-          >
-            {!answered && (
-              <button
-                id="check"
-                className={`button ${
-                  selection == 0 ? "deselect" : "clickable"
-                }`}
-                onClick={validate}
-              >
-                CHECK
-              </button>
-            )}
-            {answered && (
-              <button
-                id="continue"
-                className={`button ${
-                  selection == correct ? "correct" : "incorrect"
-                }`}
-                onClick={nextQ}
-              >
-                {numAns == 20 - 1 || numIncorrect > 3 ? "FINISH" : "CONTINUE"}
-              </button>
-            )}
-          </div>
-          </div>
-  )
-}
+    <>
+      {!answered && (
+        <LessonFooterDefault selected={selected} validate={validate} />
+      )}
+      {answered &&
+        (correct ? (
+          <LessonFooterCorrect gameOver={gameOver} nextQ={nextQ} />
+        ) : (
+          <LessonFooterIncorrect
+            gameOver={gameOver}
+            nextQ={nextQ}
+            correctAns={correctAns}
+          />
+        ))}
+    </>
+  );
+};
 
-export default LessonFooter
+export default LessonFooter;
