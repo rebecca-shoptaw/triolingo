@@ -109,6 +109,7 @@ The progress bar has a very simple implementation, just a nested blue fill with 
       - [x] Subdivide into separate components as needed
       - [x] Begin incorporating custom hooks
       - [ ] Optimize data flow between components
+      - [ ] Finalize Redux integration
     - [x] Replacing repetitive code both in Typescript functions and in the HTML with clean, efficient code
     - [x] Splitting up oversized functions such as `nextQ` into smaller, straightforward functions
     - [x] Ensuring that only necessary state variables and functions are used
